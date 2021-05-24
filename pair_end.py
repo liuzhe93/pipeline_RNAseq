@@ -4,7 +4,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--datapath', type=str, default='test/', help='Data path')
 parser.add_argument('--workpath', type=str, default='work/', help='Work path')
-parser.add_argument('--genome', type=str, default='mm9', help='Reference genome')
+parser.add_argument('--genome', type=str, default='hg19', help='Reference genome')
 parser.add_argument('--threads', type=int, default=10, help='Number of threads')
 parser.add_argument('--server', type=str, default='../server.txt', help='File for saving the server information')
 
@@ -127,8 +127,8 @@ if not os.path.exists(workpath+'feature_counts_brief.txt'):
     os.system(cmd2)
 
 refseq2gene = {}
-if os.path.exists('refseq2gene_mm9.txt'):
-    infile = open('refseq2gene_mm9.txt', 'r')
+if os.path.exists('refseq2gene_hg19.txt'):
+    infile = open('refseq2gene_hg19.txt', 'r')
     for line in infile:
        a,b = line.split('\t') 
        refseq2gene[a] = b.strip()
